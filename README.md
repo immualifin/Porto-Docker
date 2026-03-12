@@ -1,60 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Portto - Portfolio Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web portfolio/showcase project yang dibangun dengan **Laravel 12**, **Tailwind CSS**, dan **Laravel Sail** (Docker).
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Backend:** Laravel 12 (PHP 8.4)
+- **Auth:** Laravel Breeze
+- **Frontend:** Blade + Tailwind CSS + Vite
+- **Database:** MySQL 8.0
+- **Container:** Docker + Laravel Sail
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prasyarat
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Docker](https://docs.docker.com/get-docker/) terinstall dan running
+- [Composer](https://getcomposer.org/) terinstall
+- User sudah masuk ke group `docker` (opsional, agar tidak perlu `sudo`):
+  ```bash
+  sudo usermod -aG docker $USER
+  # Logout dan login kembali agar berlaku
+  ```
 
-## Learning Laravel
+## Instalasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Clone repository
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+git clone https://github.com/immualifin/Porto-Docker.git
+cd Porto-Docker
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Salin file environment
 
-## Laravel Sponsors
+```bash
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 3. Konfigurasi database di `.env`
 
-### Premium Partners
+Ubah konfigurasi database agar sesuai dengan Docker Compose:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```env
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
 
-## Contributing
+### 4. Install dependencies Composer
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+```
 
-## Code of Conduct
+### 5. Generate application key
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 6. Jalankan container Docker (Laravel Sail)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+./vendor/bin/sail up -d
+```
+
+> **Note:** Jika belum masuk group `docker`, tambahkan `sudo` di depan setiap perintah Sail.
+
+### 7. Fix permission storage (jika diperlukan)
+
+```bash
+./vendor/bin/sail exec -u root laravel.test bash -c "chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache"
+```
+
+### 8. Buat storage link
+
+```bash
+./vendor/bin/sail artisan storage:link
+```
+
+### 9. Jalankan migrasi dan seeder
+
+```bash
+./vendor/bin/sail artisan migrate --seed
+```
+
+### 10. Install dan build frontend assets
+
+```bash
+./vendor/bin/sail exec -u root laravel.test bash -c "npm install && npm run build"
+```
+
+### 11. Akses aplikasi
+
+Buka browser dan akses: **http://localhost**
+
+## Login Default
+
+| Email              | Password   |
+|--------------------|------------|
+| test@example.com   | password   |
+
+## Perintah Sail yang Berguna
+
+```bash
+./vendor/bin/sail up -d          # Start containers (background)
+./vendor/bin/sail down            # Stop containers
+./vendor/bin/sail artisan ...     # Jalankan artisan command
+./vendor/bin/sail npm ...         # Jalankan npm command
+./vendor/bin/sail mysql           # Akses MySQL CLI
+./vendor/bin/sail logs            # Lihat container logs
+```
+
+## Fitur
+
+- **Halaman Publik:** Homepage portfolio, detail project, form booking/order
+- **Admin Panel:** CRUD project, tools, screenshots, dan lihat order masuk
+- **Autentikasi:** Register, login, reset password (Laravel Breeze)
+
+## Struktur Database
+
+| Tabel                | Deskripsi                              |
+|----------------------|----------------------------------------|
+| `users`              | Data user/admin                        |
+| `projects`           | Data project portfolio                 |
+| `tools`              | Teknologi/tools yang digunakan         |
+| `project_tools`      | Relasi many-to-many project ↔ tools    |
+| `project_screenshots`| Screenshot project                     |
+| `project_orders`     | Order/booking dari client              |
 
 ## License
 
