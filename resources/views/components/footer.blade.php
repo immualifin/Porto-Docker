@@ -7,10 +7,10 @@
             <div class="grid grid-cols-2 lg:flex gap-6 lg:gap-[60px] xl:gap-[100px] z-10">
                 <div class="flex flex-col gap-3 lg:gap-5">
                     <p class="font-bold text-base lg:text-lg">Explore</p>
-                    <a href="" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Services</a>
-                    <a href="" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
-                    <a href="" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Pricing</a>
-                    <a href="" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">About</a>
+                    <a href="{{ route('front.index') }}#Services" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Services</a>
+                    <a href="{{ route('front.index') }}#Testimonials" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
+                    <a href="{{ route('front.index') }}#Projects" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Pricing</a>
+                    <a href="{{ route('front.index') }}#Workflow" class="font-medium text-sm lg:text-base hover:font-semibold hover:text-portto-light-gold transition-all duration-300">About</a>
                 </div>
                 <div class="flex flex-col gap-3 lg:gap-5">
                     <p class="font-bold text-base lg:text-lg">Services</p>

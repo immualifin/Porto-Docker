@@ -13,25 +13,27 @@
                             class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Home</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('front.index') }}#Services"
                             class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Services</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('front.index') }}#Testimonials"
                             class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('front.index') }}#Projects"
                             class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
                     </li>
                     <li>
-                        <a href=""
+                        <a href="{{ route('front.index') }}#Workflow"
                             class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
                     </li>
                 </ul>
-                <button
-                    class="bg-portto-light-gold font-bold text-lg p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire
-                    Me</button>
+                <a href="{{ route('front.book') }}">
+                    <button
+                        class="bg-portto-light-gold font-bold text-lg p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire
+                        Me</button>
+                </a>
             </div>
         </nav>
         <div class="hero container max-w-[1130px] mx-auto flex flex-col justify-center items-center relative">

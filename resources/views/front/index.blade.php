@@ -19,19 +19,21 @@
                         <a href="{{ route('front.index') }}"  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Home</a>
                     </li>
                     <li>
-                        <a href=""  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Services</a>
+                        <a href="#Services"  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Services</a>
                     </li>
                     <li>
-                        <a href=""  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
+                        <a href="#Testimonials"  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
                     </li>
                     <li>
-                        <a href=""  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
+                        <a href="#Projects"  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
                     </li>
                     <li>
-                        <a href=""  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
+                        <a href="#Workflow"  class="font-medium text-base lg:text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
                     </li>
                 </ul>
-                <button class="bg-portto-light-gold font-bold text-base lg:text-lg p-[12px_24px] lg:p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire Me</button>
+                <a href="{{ route('front.book') }}">
+                    <button class="bg-portto-light-gold font-bold text-base lg:text-lg p-[12px_24px] lg:p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire Me</button>
+                </a>
             </div>
             <!-- Mobile menu -->
             <div id="mobile-menu" class="fixed inset-0 bg-portto-black bg-opacity-95 z-10 lg:hidden transform translate-x-full transition-transform duration-300">
@@ -41,19 +43,21 @@
                             <a href="{{ route('front.index') }}" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Home</a>
                         </li>
                         <li>
-                            <a href="" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Services</a>
+                            <a href="#Services" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Services</a>
                         </li>
                         <li>
-                            <a href="" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
+                            <a href="#Testimonials" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
                         </li>
                         <li>
-                            <a href="" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Pricing</a>
+                            <a href="#Projects" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Pricing</a>
                         </li>
                         <li>
-                            <a href="" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">About</a>
+                            <a href="#Workflow" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">About</a>
                         </li>
                     </ul>
-                    <button class="bg-portto-light-gold font-bold text-lg p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire Me</button>
+                    <a href="{{ route('front.book') }}">
+                        <button class="bg-portto-light-gold font-bold text-lg p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Hire Me</button>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -61,7 +65,9 @@
             <div class="flex flex-col gap-[30px] lg:gap-[50px] h-fit w-fit text-white z-10 text-center lg:text-left">
                 <p class="font-semibold text-xl lg:text-2xl">I'm Shayna 👋</p>
                 <h1 class="font-extrabold text-[32px] sm:text-[48px] lg:text-[80px] leading-[40px] sm:leading-[56px] lg:leading-[90px]">Professional Designer & Dev</h1>
-                <button class="font-bold text-[18px] lg:text-[26px] leading-[27px] lg:leading-[39px] rounded-[20px] lg:rounded-[30px] p-[20px_30px] lg:p-[30px_40px] bg-portto-purple w-fit mx-auto lg:mx-0 transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">Explore Now</button>
+                <a href="#Projects">
+                    <button class="font-bold text-[18px] lg:text-[26px] leading-[27px] lg:leading-[39px] rounded-[20px] lg:rounded-[30px] p-[20px_30px] lg:p-[30px_40px] bg-portto-purple w-fit mx-auto lg:mx-0 transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">Explore Now</button>
+                </a>
             </div>
             <div class="flex max-w-[300px] sm:max-w-[400px] lg:max-w-[471px] max-h-[360px] sm:max-h-[480px] lg:max-h-[567px] z-10 mt-8 lg:mt-0">
                 <img src="{{ asset('images/hero-image.png')}}" class="w-full h-full object-contain" alt="hero image">
@@ -152,7 +158,7 @@
         <div class="flex flex-col gap-[30px] lg:gap-[50px]">
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0">
                 <h2 class="font-extrabold text-[28px] sm:text-[36px] lg:text-[50px] leading-[36px] sm:leading-[48px] lg:leading-[70px]">Actually, I Do Design <br>& Code for Living</h2>
-                <a href="" class="font-bold text-base lg:text-lg bg-portto-black rounded-full w-fit h-fit p-[12px_24px] lg:p-[14px_30px] text-white transition-all duration-300 hover:bg-white hover:text-portto-black hover:ring hover:ring-portto-black">All Services</a>
+                <a href="#Services" class="font-bold text-base lg:text-lg bg-portto-black rounded-full w-fit h-fit p-[12px_24px] lg:p-[14px_30px] text-white transition-all duration-300 hover:bg-white hover:text-portto-black hover:ring hover:ring-portto-black">All Services</a>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px] lg:gap-[30px]">
                 <div class="p-[30px] lg:p-[50px] pb-0 rounded-[20px] lg:rounded-[30px] flex flex-col gap-[30px] lg:gap-[50px] bg-[#F4F5F8]">
