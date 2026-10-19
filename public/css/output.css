@@ -631,6 +631,33 @@ video {
 .z-10 {
   z-index: 10;
 }
+.z-20 {
+  z-index: 20;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.min-h-full {
+  min-height: 100%;
+}
+
+.bg-opacity-95 {
+  --tw-bg-opacity: 0.95;
+}
 
 .col-span-2 {
   grid-column: span 2 / span 2;

@@ -2,12 +2,12 @@
 @section('title', 'InumaDev')
 @section('content')
     <section id="Header" class="flex flex-col gap-[50px] lg:gap-[100px] bg-portto-black relative">
-        <nav class="container max-w-[1130px] mx-auto flex justify-between items-center pt-[20px] lg:pt-[30px] px-4 lg:px-0 z-10">
-            <a href="{{ route('front.index') }}" class="w-[120px] lg:w-[161px] flex shrink-0 h-fit">
+        <nav class="container max-w-[1130px] mx-auto flex justify-between items-center pt-[20px] lg:pt-[30px] px-4 lg:px-0 relative z-50">
+            <a href="{{ route('front.index') }}" class="w-[120px] lg:w-[161px] flex shrink-0 h-fit relative z-50">
                 <img src="{{ asset('images/logos/logo.svg')}}" alt="logo">
             </a>
             <!-- Mobile menu button -->
-            <button id="mobile-menu-toggle" class="lg:hidden flex flex-col gap-1 z-20">
+            <button id="mobile-menu-toggle" class="lg:hidden flex flex-col gap-1 relative z-50" aria-label="Toggle mobile menu">
                 <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
                 <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
                 <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
@@ -36,8 +36,8 @@
                 </a>
             </div>
             <!-- Mobile menu -->
-            <div id="mobile-menu" class="fixed inset-0 bg-portto-black bg-opacity-95 z-10 lg:hidden transform translate-x-full transition-transform duration-300">
-                <div class="flex flex-col items-center justify-center h-full gap-8">
+            <div id="mobile-menu" class="fixed inset-0 bg-portto-black bg-opacity-95 z-40 lg:hidden transform translate-x-full transition-transform duration-300 overflow-y-auto">
+                <div class="flex flex-col items-center justify-center min-h-full py-20 px-4 gap-8">
                     <ul class="flex flex-col gap-8 items-center text-white">
                         <li>
                             <a href="{{ route('front.index') }}" class="font-medium text-xl hover:text-portto-light-gold transition-all duration-300">Home</a>
@@ -63,19 +63,19 @@
         </nav>
         <div class="hero container max-w-[1130px] mx-auto flex flex-col lg:flex-row justify-between items-center relative px-4 lg:px-0">
             <div class="flex flex-col gap-[30px] lg:gap-[50px] h-fit w-fit text-white z-10 text-center lg:text-left">
-                <p class="font-semibold text-xl lg:text-2xl">I'm Shayna 👋</p>
+                <p class="font-semibold text-xl lg:text-2xl">Hi I'm Ibnu 👋</p>
                 <h1 class="font-extrabold text-[32px] sm:text-[48px] lg:text-[80px] leading-[40px] sm:leading-[56px] lg:leading-[90px]">Professional Designer & Dev</h1>
                 <a href="#Projects">
                     <button class="font-bold text-[18px] lg:text-[26px] leading-[27px] lg:leading-[39px] rounded-[20px] lg:rounded-[30px] p-[20px_30px] lg:p-[30px_40px] bg-portto-purple w-fit mx-auto lg:mx-0 transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">Explore Now</button>
                 </a>
             </div>
             <div class="flex max-w-[300px] sm:max-w-[400px] lg:max-w-[471px] max-h-[360px] sm:max-h-[480px] lg:max-h-[567px] z-10 mt-8 lg:mt-0">
-                <img src="{{ asset('images/hero-image.png')}}" class="w-full h-full object-contain" alt="hero image">
+                <!--<img src="{{ asset('images/hero-image.png')}}" class="w-full h-full object-contain" alt="hero image">-->
             </div>
             <img src="{{ asset('images/Ellipse.svg')}}" class="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 opacity-50 lg:opacity-100" alt="background icon">
         </div>
         <div class="company-logos w-full overflow-hidden pb-[120px] lg:pb-[190px]">
-            <div class="group/slider flex flex-nowrap w-max items-center">
+            <!--<div class="group/slider flex flex-nowrap w-max items-center">
                 <div class="logo-container animate-[slide_25s_linear_infinite] group-hover/slider:pause-animate  flex gap-[70px] pl-[70px] items-center flex-nowrap">
                     <div class="flex w-fit h-[40px] shrink-0">
                         <img src="{{ asset('images/logos/logoipsum1.png')}}" class="w-full h-full object-contain" alt="logo">
@@ -128,7 +128,7 @@
                         <img src="{{ asset('images/logos/logoipsum4.png')}}" class="w-full h-full object-contain" alt="logo">
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="stats container max-w-[1130px] mx-auto bg-gradient-to-r from-[#FFEDD3] to-[#FFCD83] grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-between items-center gap-4 lg:gap-0 px-4 sm:px-8 lg:px-[100px] py-6 lg:py-0 rounded-[20px] lg:rounded-[30px] w-full min-h-[120px] lg:h-[180px] absolute transform -translate-x-1/2 translate-y-1/2 bottom-0 left-1/2">
             <div class="text-center w-fit h-fit mx-auto">
@@ -211,7 +211,7 @@
         <div class="projects w-full flex flex-col mb-[30px] overflow-hidden">
             <div class="group/slider slider flex flex-nowrap w-max items-center">
                 <div class="project-container animate-[slide_50s_linear_infinite] group-hover/slider:pause-animate flex gap-[30px] pl-[30px] items-center flex-nowrap">
-                   
+
                     @forelse($projects as $index => $project)
                     @if($index < 3)
                     <div class="group w-[300px] sm:w-[450px] lg:w-[650px] h-[250px] sm:h-[350px] lg:h-[450px] flex shrink-0 rounded-[20px] lg:rounded-[30px] border border-white p-3 lg:p-5 bg-[#FFFFFF33] backdrop-blur relative">
@@ -233,7 +233,7 @@
 
                 </div>
                 <div class="project-container animate-[slide_50s_linear_infinite] group-hover/slider:pause-animate flex gap-[30px] pl-[30px] items-center flex-nowrap ">
-                    
+
                     @forelse($projects as $index => $project)
                     @if($index < 3)
                     <div class="group w-[300px] sm:w-[450px] lg:w-[650px] h-[250px] sm:h-[350px] lg:h-[450px] flex shrink-0 rounded-[20px] lg:rounded-[30px] border border-white p-3 lg:p-5 bg-[#FFFFFF33] backdrop-blur relative">
@@ -259,7 +259,7 @@
         <div class="projects w-full flex flex-col overflow-hidden">
             <div class="group/slider slider flex flex-nowrap w-max items-center">
                 <div class="project-container animate-[slideToR_50s_linear_infinite] group-hover/slider:pause-animate flex gap-[30px] pl-[30px] items-center flex-nowrap">
-                   
+
                     @forelse($projects as $index => $project)
                     @if($index >= 3)
                     <div class="group w-[300px] sm:w-[450px] lg:w-[650px] h-[250px] sm:h-[350px] lg:h-[450px] flex shrink-0 rounded-[20px] lg:rounded-[30px] border border-white p-3 lg:p-5 bg-[#FFFFFF33] backdrop-blur relative">
@@ -281,7 +281,7 @@
 
                 </div>
                 <div class="project-container animate-[slideToR_50s_linear_infinite] group-hover/slider:pause-animate flex gap-[30px] pl-[30px] items-center flex-nowrap ">
-                    
+
                     @forelse($projects as $index => $project)
                     @if($index >= 3)
                     <div class="group w-[300px] sm:w-[450px] lg:w-[650px] h-[250px] sm:h-[350px] lg:h-[450px] flex shrink-0 rounded-[20px] lg:rounded-[30px] border border-white p-3 lg:p-5 bg-[#FFFFFF33] backdrop-blur relative">
@@ -464,6 +464,6 @@
     <x-footer/>
 
     @push('after-scripts')
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}?v={{ file_exists(public_path('js/main.js')) ? filemtime(public_path('js/main.js')) : time() }}"></script>
     @endpush
 @endsection

@@ -24,40 +24,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle functionality
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    const menuSpans = mobileMenuToggle.querySelectorAll('span');
     
     if (mobileMenuToggle && mobileMenu) {
+        const menuSpans = mobileMenuToggle.querySelectorAll('span');
+
+        const closeMobileMenu = function() {
+            mobileMenu.classList.add('translate-x-full');
+            menuSpans[0].classList.remove('rotate-45', 'translate-y-2');
+            menuSpans[1].classList.remove('opacity-0');
+            menuSpans[2].classList.remove('-rotate-45', '-translate-y-2');
+            document.body.classList.remove('overflow-hidden');
+        };
+
         mobileMenuToggle.addEventListener('click', function() {
             // Toggle menu visibility
-            mobileMenu.classList.toggle('translate-x-full');
-            
-            // Animate hamburger to X
-            menuSpans[0].classList.toggle('rotate-45');
-            menuSpans[0].classList.toggle('translate-y-2');
-            menuSpans[1].classList.toggle('opacity-0');
-            menuSpans[2].classList.toggle('-rotate-45');
-            menuSpans[2].classList.toggle('-translate-y-2');
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                menuSpans[0].classList.add('rotate-45', 'translate-y-2');
+                menuSpans[1].classList.add('opacity-0');
+                menuSpans[2].classList.add('-rotate-45', '-translate-y-2');
+                document.body.classList.add('overflow-hidden');
+            }
         });
 
         // Close menu when clicking on menu items
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                mobileMenu.classList.add('translate-x-full');
-                menuSpans[0].classList.remove('rotate-45', 'translate-y-2');
-                menuSpans[1].classList.remove('opacity-0');
-                menuSpans[2].classList.remove('-rotate-45', '-translate-y-2');
+                closeMobileMenu();
             });
         });
 
         // Close menu when clicking outside
         mobileMenu.addEventListener('click', function(e) {
             if (e.target === mobileMenu) {
-                mobileMenu.classList.add('translate-x-full');
-                menuSpans[0].classList.remove('rotate-45', 'translate-y-2');
-                menuSpans[1].classList.remove('opacity-0');
-                menuSpans[2].classList.remove('-rotate-45', '-translate-y-2');
+                closeMobileMenu();
             }
         });
     }
-  });
+});
